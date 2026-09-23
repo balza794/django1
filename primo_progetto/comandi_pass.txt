@@ -1,0 +1,10 @@
+-----------------------------------------------------
+py manage.py runserver //Per far partire il server
+py manage.py createsuperuser //Crea il super user
+-----------------------------------------------------
+Per attivare la virtual env:
+
+-----------------------------------------------------
+nome utente: admin 
+pass: balzaAdmin
+-----------------------------------------------------
