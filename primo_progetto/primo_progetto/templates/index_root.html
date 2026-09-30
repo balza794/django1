@@ -1,14 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <ol>
-        <li><a href="{% url 'prima_app:index'%} ">Vai alla prima app</a></li>
-        <li><a href="/admin">Pannello admin</a></li>
+{% extends "base.html" %}
+
+{% block title %} {{ block.super }} | Home {% endblock title %}
+
+{% block content %}
+    <h1>Home Page del Progetto</h1>
+    <ol class="list-group list-group-numbered">
+        <li class="list-group-item">
+            <a href="{% url 'prima_app:index' %}">Vai alla prima app</a>
+        </li>
+        <li class="list-group-item">
+            <a href="/admin">Pannello admin</a>
+        </li>
     </ol>
-</body>
-</html>
+{% endblock content %}

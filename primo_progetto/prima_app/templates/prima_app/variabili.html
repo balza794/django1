@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <ol>
-        <li>{{ var1 }}</li>
-        <li>{{ var2 }}</li>
-        <li>{{ var3 }}</li>
+{% extends "base.html" %}
+
+{% block title %} {{ block.super }} | Variabili {% endblock title %}
+
+{% block content %}
+    <h1>Elenco Variabili</h1>
+    <ol class="list-group list-group-numbered">
+        <li class="list-group-item">{{ var1 }}</li>
+        <li class="list-group-item">{{ var2 }}</li>
+        <li class="list-group-item">{{ var3 }}</li>
     </ol>
-</body>
-</html>
+{% endblock content %}

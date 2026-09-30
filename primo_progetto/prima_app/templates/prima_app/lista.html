@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=>, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <ol>
-        <li>primo</li>
-        <li>secondo</li>
-        <li>terzo</li>
+{% extends "base.html" %}
+
+{% block title %} {{ block.super }} | Lista {% endblock title %}
+
+{% block content %}
+    <h1>Lista Elementi</h1>
+    <ol class="list-group list-group-numbered">
+        <li class="list-group-item">primo</li>
+        <li class="list-group-item">secondo</li>
+        <li class="list-group-item">terzo</li>
     </ol>
-</body>
-</html>
+{% endblock content %}
