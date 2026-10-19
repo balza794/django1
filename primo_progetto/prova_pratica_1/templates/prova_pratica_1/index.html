@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %} {{ block.super }} | Menu prova pratica FILA-A Paolo Balzarotti{% endblock title %}
+
+{% block content %}
+    <h1>Menu Navigazione</h1>
+    <ol>
+        <li>
+            <a href="{% url 'prova_pratica_1:index' %}">index</a>
+        </li>
+        <li>
+            <a href="{% url 'prova_pratica_1:somma' %}">somma</a>
+        </li>
+        <li>
+            <a href="{% url 'prova_pratica_1:media' %}">media</a>
+        </li>
+        <li>
+            <a href="{% url 'prova_pratica_1:voti' %}">voti</a>
+        </li>
+    </ol>
+{% endblock content %}

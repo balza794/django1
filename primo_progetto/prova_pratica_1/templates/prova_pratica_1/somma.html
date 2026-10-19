@@ -1,0 +1,19 @@
+{% extends 'base.html'%}
+{%block title%}
+    {{block.super}} | SOMMA
+{%endblock title%}
+{%block content%}
+{% if var1 < var2 %}
+    <p style="color: red;">{{var1}}</p>
+    <p style="color: rgb(72, 255, 0);">{{var2}}</p>
+{% endif %}
+{% if var1 > var2 %}
+    <p style="color: rgb(72, 255, 0);">{{var1}}</p>
+    <p style="color: rgb(255, 0, 0);">{{var2}}</p>
+{% endif %}
+{% if var1 == var2 %}
+    <p style="color: rgb(0, 0, 0);">{{var1}}</p>
+    <p style="color: rgb(10, 10, 10);">{{var2}}</p>
+{% endif %}
+    <p> {{somma}} </p>
+{%endblock content%}
