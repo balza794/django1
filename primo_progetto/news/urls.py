@@ -4,5 +4,6 @@ app_name = "news"
 
 urlpatterns =[
     path("", home, name="homeview"),
-    path("articoli/<int:pk>", articoloDetailView, name="articolo_detail")
+    path("articoli/<int:pk>", articoloDetailView, name="articolo_detail"),
+    path("lista/", articoloDetailView, name="articolo_detail")
 ]
