@@ -14,10 +14,11 @@
     {% else %}
         <h1>Tutti gli articoli</h1>
     {% endif %}
+
     {% for articolo in articoli %}
         <article>
             <h2>
-                <a href="{% url 'news:articolo_details' articolo.pk %}">{{ articolo.titolo }}</a>
+                <a href="{% url 'news:lista_articoli' pk=articolo.pk %}">{{ articolo.titolo }}</a>
             </h2>
             <p>{{ articolo.contenuto }}</p>
         </article>
