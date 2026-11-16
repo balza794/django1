@@ -78,7 +78,7 @@ def query_base(request):
 
     #3.Contare il numero di articoli scritti da un giornalista specifico:
     giornalista_1 = Giornalista.objects.get(id=1)
-    numero_articoli_giornalista_1 = Articolo.objects.filter(giornalista=giornalista_1).count()
+    numero_articoli_g1 = Articolo.objects.filter(giornalista=giornalista_1).count()
 
     #4.Ordinare gli articoli per numero di visualizzazioni in ordine decrescente:
     articoli_ordinati = Articolo.objects.order_by('-visualizzazioni')
@@ -118,6 +118,7 @@ def query_base(request):
     # Creare il dizionario context
     context = {
     'articoli_cognome': articoli_cognome,
-    'numero totale articoli': numero_totale_articoli,
+    'numero_totale_articoli': numero_totale_articoli,
+    'numero_articoli_g1': numero_articoli_g1,
     }
     return render(request, 'news/query.html', context)
