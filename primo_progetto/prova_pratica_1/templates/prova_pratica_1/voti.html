@@ -1,0 +1,20 @@
+{% extends 'base.html'%}
+{%block title%}
+    {{block.super}} | VOTI
+{%endblock title%}
+{%block content%}
+    <table>
+        <tr>
+            <td>NOME ST</td>
+            <td>   VOTO </td>
+        </tr>
+        <tr>
+            <td><p>{{studente1}}</p></td>
+            <td>   {{voto1}}</td>
+        </tr>
+        <tr>
+            <td><p>{{studente2}}</p></td>
+            <td>   {{voto2}}</td>
+        </tr>
+    </table>
+{%endblock content%}

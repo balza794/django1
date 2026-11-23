@@ -1,0 +1,15 @@
+{% extends 'base.html'%}
+{%block title%}
+    {{block.super}} | MEDIA
+{%endblock title%}
+{%block content%}
+{% if media < 6%}
+    <p style="color: red;">{{media}}</p>
+{% endif %}
+{% if media == 6 %}
+    <p style="color: rgb(0, 0, 0);">{{media}}</p>
+{% endif %}
+{% if media > 6 %}
+    <p style="color: rgb(0, 253, 0);">{{media}}</p>
+{% endif %}
+{%endblock content%}
