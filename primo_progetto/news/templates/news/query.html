@@ -27,7 +27,7 @@
 </section>
 
 <section class="mb-4">
-    <h2>3. Numero di articoli del giornalista con ID 6</h2>
+    <h2>3. Numero di articoli del giornalista con ID 1 ({{ giornalista_1 }})</h2>
     <p>{{ numero_articoli_g1 }}</p>
 </section>
 
@@ -71,6 +71,24 @@
         </p>
     {% else %}
         <p>Non ci sono articoli.</p>
+    {% endif %}
+</section>
+
+<section class="mb-4">
+    <h2>7. Giornalisti nati dopo il 1 gennaio 1990</h2>
+    {% if giornalisti_data %}
+        <ul>
+            {% for giornalista in giornalisti_data %}
+                <li>
+                    <a href="{% url 'news:lista_articoli_giornalista' pk=giornalista.pk %}">
+                        {{ giornalista }}
+                    </a>
+                    — nato/a il {{ giornalista.anno_di_nascita }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nessun giornalista trovato.</p>
     {% endif %}
 </section>
 
@@ -193,7 +211,7 @@
 </section>
 
 <section class="mb-4">
-    <h2>16. Articoli pubblicati a gennaio 2023</h2>
+    <h2>16. Articoli pubblicati a novembre 2026</h2>
     {% if articoli_mese_anno %}
         <ul>
             {% for articolo in articoli_mese_anno %}
@@ -209,10 +227,10 @@
 </section>
 
 <section class="mb-4">
-    <h2>17. Giornalisti con almeno un articolo con almeno 100 visualizzazioni</h2>
-    {% if giornalisti_con_articoli_popolari %}
+    <h2>17. Giornalisti con almeno un articolo con più di 10 visualizzazioni</h2>
+    {% if giornalista_con_articoli_popolari %}
         <ul>
-            {% for giornalista in giornalisti_con_articoli_popolari %}
+            {% for giornalista in giornalista_con_articoli_popolari %}
                 <li>
                     <a href="{% url 'news:lista_articoli_giornalista' pk=giornalista.pk %}">
                         {{ giornalista }}
@@ -226,13 +244,13 @@
 </section>
 
 <section class="mb-4">
-    <h2>18. Articoli con giornalista nato dopo il {{ data_riferimento }} e almeno {{ soglia_visualizzazioni }} visualizzazioni (AND)</h2>
+    <h2>18. Articoli con giornalista nato dopo l'1/11/2026 E almeno 50 visualizzazioni (AND)</h2>
     {% if articoli_con_and %}
         <ul>
             {% for articolo in articoli_con_and %}
                 <li>
                     <a href="{% url 'news:lista_articoli' pk=articolo.pk %}">{{ articolo.titolo }}</a>
-                    — {{ articolo.giornalista }} — {{ articolo.visualizzazioni }} visualizzazioni
+                    — {{ articolo.giornalista }} ({{ articolo.visualizzazioni }} visualizzazioni)
                 </li>
             {% endfor %}
         </ul>
@@ -242,13 +260,13 @@
 </section>
 
 <section class="mb-4">
-    <h2>19. Articoli con giornalista nato dopo il {{ data_riferimento }} oppure almeno {{ soglia_visualizzazioni }} visualizzazioni (OR)</h2>
+    <h2>19. Articoli con giornalista nato dopo l'1/11/2026 OPPURE massimo 50 visualizzazioni (OR)</h2>
     {% if articoli_con_or %}
         <ul>
             {% for articolo in articoli_con_or %}
                 <li>
                     <a href="{% url 'news:lista_articoli' pk=articolo.pk %}">{{ articolo.titolo }}</a>
-                    — {{ articolo.giornalista }} — {{ articolo.visualizzazioni }} visualizzazioni
+                    — {{ articolo.giornalista }} ({{ articolo.visualizzazioni }} visualizzazioni)
                 </li>
             {% endfor %}
         </ul>
@@ -258,13 +276,13 @@
 </section>
 
 <section class="mb-4">
-    <h2>20. Articoli il cui giornalista non è nato prima del {{ data_riferimento }} (NOT)</h2>
+    <h2>20a. Articoli con giornalista NON nato prima dell'1/11/2026 (~Q)</h2>
     {% if articoli_con_not %}
         <ul>
             {% for articolo in articoli_con_not %}
                 <li>
                     <a href="{% url 'news:lista_articoli' pk=articolo.pk %}">{{ articolo.titolo }}</a>
-                    — {{ articolo.giornalista }} — {{ articolo.giornalista.anno_di_nascita }}
+                    — {{ articolo.giornalista }} (nato/a il {{ articolo.giornalista.anno_di_nascita }})
                 </li>
             {% endfor %}
         </ul>
@@ -272,4 +290,21 @@
         <p>Nessun articolo trovato.</p>
     {% endif %}
 </section>
+
+<section class="mb-4">
+    <h2>20b. Articoli con giornalista NON nato prima dell'1/11/2026 (exclude)</h2>
+    {% if articoli_con_exclude %}
+        <ul>
+            {% for articolo in articoli_con_exclude %}
+                <li>
+                    <a href="{% url 'news:lista_articoli' pk=articolo.pk %}">{{ articolo.titolo }}</a>
+                    — {{ articolo.giornalista }} (nato/a il {{ articolo.giornalista.anno_di_nascita }})
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nessun articolo trovato.</p>
+    {% endif %}
+</section>
+
 {% endblock content %}
