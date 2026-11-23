@@ -15,14 +15,14 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
             <a class="navbar-brand fw-bold" href="/">Primo Progetto</a>
-            
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    
+
                     <!-- Menu a tendina 'Prima' -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -55,8 +55,10 @@
                             News
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{% url 'news:index' %}">Index News</a></li>
-                            <li><a class="dropdown-item" href="{% url 'news:lista_articoli' %}">Lista Articoli</a></li>
+                            <li><a class="dropdown-item" href="{% url 'news:index' %}">Home news</a></li>
+                            <li><a class="dropdown-item" href="{% url 'news:lista_articoli' %}">Articoli</a></li>
+                            <li><a class="dropdown-item" href="{% url 'news:giornalista_detail' 1 %}">Giornalisti</a></li>
+                            <li><a class="dropdown-item" href="{% url 'news:queryBase' %}">Query varie</a></li>
                         </ul>
                     </li>
 

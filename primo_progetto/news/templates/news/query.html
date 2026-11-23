@@ -11,7 +11,7 @@
         <ul>
             {% for articolo in articoli_cognome %}
                 <li>
-                    <a href="{% url 'news:lista_articoli' pk=articolo.pk %}">{{ articolo.titolo }}</a>
+                    <a href="{% url 'news:articolo_detail' pk=articolo.pk %}">{{ articolo.titolo }}</a>
                     — {{ articolo.giornalista }}
                 </li>
             {% endfor %}
@@ -37,7 +37,7 @@
         <ul>
             {% for articolo in articoli_ordinati %}
                 <li>
-                    <a href="{% url 'news:lista_articoli' pk=articolo.pk %}">{{ articolo.titolo }}</a>
+                    <a href="{% url 'news:articolo_detail' pk=articolo.pk %}">{{ articolo.titolo }}</a>
                     — {{ articolo.visualizzazioni }} visualizzazioni
                 </li>
             {% endfor %}
@@ -52,7 +52,7 @@
     {% if articoli_senza_visualizzazioni %}
         <ul>
             {% for articolo in articoli_senza_visualizzazioni %}
-                <li><a href="{% url 'news:lista_articoli' pk=articolo.pk %}">{{ articolo.titolo }}</a></li>
+                <li><a href="{% url 'news:articolo_detail' pk=articolo.pk %}">{{ articolo.titolo }}</a></li>
             {% endfor %}
         </ul>
     {% else %}
@@ -64,7 +64,7 @@
     <h2>6. Articolo più visualizzato</h2>
     {% if articolo_piu_visualizzato %}
         <p>
-            <a href="{% url 'news:lista_articoli' pk=articolo_piu_visualizzato.pk %}">
+            <a href="{% url 'news:articolo_detail' pk=articolo_piu_visualizzato.pk %}">
                 {{ articolo_piu_visualizzato.titolo }}
             </a>
             — {{ articolo_piu_visualizzato.visualizzazioni }} visualizzazioni
@@ -97,7 +97,7 @@
     {% if articoli_del_giorno %}
         <ul>
             {% for articolo in articoli_del_giorno %}
-                <li><a href="{% url 'news:lista_articoli' pk=articolo.pk %}">{{ articolo.titolo }}</a></li>
+                <li><a href="{% url 'news:articolo_detail' pk=articolo.pk %}">{{ articolo.titolo }}</a></li>
             {% endfor %}
         </ul>
     {% else %}
@@ -111,7 +111,7 @@
         <ul>
             {% for articolo in articoli_periodo %}
                 <li>
-                    <a href="{% url 'news:lista_articoli' pk=articolo.pk %}">{{ articolo.titolo }}</a>
+                    <a href="{% url 'news:articolo_detail' pk=articolo.pk %}">{{ articolo.titolo }}</a>
                     — {{ articolo.data }}
                 </li>
             {% endfor %}
@@ -127,7 +127,7 @@
         <ul>
             {% for articolo in articoli_giornalisti %}
                 <li>
-                    <a href="{% url 'news:lista_articoli' pk=articolo.pk %}">{{ articolo.titolo }}</a>
+                    <a href="{% url 'news:articolo_detail' pk=articolo.pk %}">{{ articolo.titolo }}</a>
                     — {{ articolo.giornalista }}
                 </li>
             {% endfor %}
@@ -171,7 +171,7 @@
         <ul>
             {% for articolo in ultimi %}
                 <li>
-                    <a href="{% url 'news:lista_articoli' pk=articolo.pk %}">{{ articolo.titolo }}</a>
+                    <a href="{% url 'news:articolo_detail' pk=articolo.pk %}">{{ articolo.titolo }}</a>
                     — {{ articolo.data }}
                 </li>
             {% endfor %}
@@ -187,7 +187,7 @@
         <ul>
             {% for articolo in articoli_minime_visualizzazioni %}
                 <li>
-                    <a href="{% url 'news:lista_articoli' pk=articolo.pk %}">{{ articolo.titolo }}</a>
+                    <a href="{% url 'news:articolo_detail' pk=articolo.pk %}">{{ articolo.titolo }}</a>
                     — {{ articolo.visualizzazioni }} visualizzazioni
                 </li>
             {% endfor %}
@@ -202,7 +202,7 @@
     {% if articoli_parola %}
         <ul>
             {% for articolo in articoli_parola %}
-                <li><a href="{% url 'news:lista_articoli' pk=articolo.pk %}">{{ articolo.titolo }}</a></li>
+                <li><a href="{% url 'news:articolo_detail' pk=articolo.pk %}">{{ articolo.titolo }}</a></li>
             {% endfor %}
         </ul>
     {% else %}
@@ -216,7 +216,7 @@
         <ul>
             {% for articolo in articoli_mese_anno %}
                 <li>
-                    <a href="{% url 'news:lista_articoli' pk=articolo.pk %}">{{ articolo.titolo }}</a>
+                    <a href="{% url 'news:articolo_detail' pk=articolo.pk %}">{{ articolo.titolo }}</a>
                     — {{ articolo.data }}
                 </li>
             {% endfor %}
@@ -249,7 +249,7 @@
         <ul>
             {% for articolo in articoli_con_and %}
                 <li>
-                    <a href="{% url 'news:lista_articoli' pk=articolo.pk %}">{{ articolo.titolo }}</a>
+                    <a href="{% url 'news:articolo_detail' pk=articolo.pk %}">{{ articolo.titolo }}</a>
                     — {{ articolo.giornalista }} ({{ articolo.visualizzazioni }} visualizzazioni)
                 </li>
             {% endfor %}
@@ -265,7 +265,7 @@
         <ul>
             {% for articolo in articoli_con_or %}
                 <li>
-                    <a href="{% url 'news:lista_articoli' pk=articolo.pk %}">{{ articolo.titolo }}</a>
+                    <a href="{% url 'news:articolo_detail' pk=articolo.pk %}">{{ articolo.titolo }}</a>
                     — {{ articolo.giornalista }} ({{ articolo.visualizzazioni }} visualizzazioni)
                 </li>
             {% endfor %}
@@ -281,7 +281,7 @@
         <ul>
             {% for articolo in articoli_con_not %}
                 <li>
-                    <a href="{% url 'news:lista_articoli' pk=articolo.pk %}">{{ articolo.titolo }}</a>
+                    <a href="{% url 'news:articolo_detail' pk=articolo.pk %}">{{ articolo.titolo }}</a>
                     — {{ articolo.giornalista }} (nato/a il {{ articolo.giornalista.anno_di_nascita }})
                 </li>
             {% endfor %}
@@ -297,7 +297,7 @@
         <ul>
             {% for articolo in articoli_con_exclude %}
                 <li>
-                    <a href="{% url 'news:lista_articoli' pk=articolo.pk %}">{{ articolo.titolo }}</a>
+                    <a href="{% url 'news:articolo_detail' pk=articolo.pk %}">{{ articolo.titolo }}</a>
                     — {{ articolo.giornalista }} (nato/a il {{ articolo.giornalista.anno_di_nascita }})
                 </li>
             {% endfor %}
