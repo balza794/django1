@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Dettagli del giornalista: {{ giornalista }}
+{% endblock title %}
+
+{% block content %}
+    <h1>Dettagli del giornalista:</h1>
+    <h2>{{ giornalista.cognome }} {{ giornalista.nome }}</h2>
+
+    {% if giornalista.anno_di_nascita %}
+        <p>Nato il {{ giornalista.anno_di_nascita }}</p>
+    {% endif %}
+
+    <p>Tutti i suoi articoli e visualizzazioni:</p>
+    <ul>
+        {% for art in articoli %}
+            <li>
+                Titolo: <a href="{% url 'news:articolo_detail' pk=art.pk %}">{{ art.titolo }}</a>
+                {% if art.visualizzazioni is not None %}
+                    - n.{{ art.visualizzazioni }}
+                {% endif %}
+            </li>
+        {% empty %}
+            <li>Questo giornalista non ha ancora pubblicato articoli.</li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

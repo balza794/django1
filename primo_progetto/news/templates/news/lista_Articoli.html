@@ -18,9 +18,13 @@
     {% for articolo in articoli %}
         <article>
             <h2>
-                <a href="{% url 'news:lista_articoli' pk=articolo.pk %}">{{ articolo.titolo }}</a>
+                <a href="{% url 'news:articolo_detail' pk=articolo.pk %}">{{ articolo.titolo }}</a>
             </h2>
             <p>{{ articolo.contenuto }}</p>
+            <p>
+                <strong>Autore:</strong>
+                <a href="{% url 'news:giornalista_detail' pk=articolo.giornalista.pk %}">{{ articolo.giornalista }}</a>
+            </p>
         </article>
         <hr>
     {% empty %}

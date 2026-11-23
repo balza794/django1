@@ -176,3 +176,12 @@ def query_base(request):
     }
 
     return render(request, 'news/query.html', context)
+
+def giornalistaDetailView(request, pk):
+    giornalista = get_object_or_404(Giornalista, pk=pk)
+    articoli = Articolo.objects.filter(giornalista=giornalista)
+    context = {
+        "giornalista": giornalista,
+        "articoli": articoli,
+    }
+    return render(request, "news/giornalista_detail.html", context)
